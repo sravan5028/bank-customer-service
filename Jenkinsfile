@@ -13,14 +13,14 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'cd hellow-world && mvn -B -DskipTests clean package'
+        sh 'cd bank-customer-service && mvn -B -DskipTests clean package'
         sh 'echo $USER'
         sh 'echo whoami'
       }
     }
     stage('Docker Build') {
       steps {
-        sh 'cd hellow-world && /usr/bin/docker build -t satheeshch/bank-customer-service:latest .'
+        sh 'cd bank-customer-service && /usr/bin/docker build -t satheeshch/bank-customer-service:latest .'
       }
     }
     stage('Push image') {
