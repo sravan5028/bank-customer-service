@@ -13,14 +13,14 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'cd cusotmer-service-pipline && mvn -B -DskipTests clean package'
+        sh 'mvn -B -DskipTests clean package'
         sh 'echo $USER'
         sh 'echo whoami'
       }
     }
     stage('Docker Build') {
       steps {
-        sh 'cd cusotmer-service-pipline && /usr/bin/docker build -t satheeshch/bank-customer-service:latest .'
+        sh '/usr/bin/docker build -t satheeshch/bank-customer-service:latest .'
       }
     }
     stage('Push image') {
