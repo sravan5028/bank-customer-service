@@ -1,7 +1,8 @@
 pipeline {
   agent any
   tools { 
-        maven 'maven'
+        maven 'Maven'
+        jdk 'JAVA_HOME'
   }
   stages {
     stage('Clone repository') {
@@ -12,7 +13,9 @@ pipeline {
     }
     stage('Build') {
       steps {
-          sh 'mvn -B -DskipTests clean package'
-             }
+        sh 'mvn -B -DskipTests clean package'
+        sh 'echo $USER'
+        sh 'echo whoami'
+      }
     }
-  }
+}
