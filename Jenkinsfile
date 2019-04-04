@@ -26,7 +26,8 @@ pipeline {
     stage('Push image') {
       steps {
         withDockerRegistry(credentialsId: 'ecr:us-east-1:Devops_guru', url: '775596097483.dkr.ecr.us-east-1.amazonaws.com/cloud_guru') {
-          sh '/usr/bin/docker push cloud_guru/bank-customer-service:latest'
+          //sh '/usr/bin/docker push cloud_guru/bank-customer-service:latest'
+          sh 'docker push 775596097483.dkr.ecr.us-east-1.amazonaws.com/cloud_guru:latest'
         }  
       }
     }
